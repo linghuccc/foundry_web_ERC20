@@ -1,0 +1,58 @@
+/* Styles for Sections */
+.wallet {
+  background-color: #fff3c4;
+  padding: 10px 10px;
+}
+
+.contract-upper {
+  background-color: #ffd3e0;
+  padding: 10px 10px 10px 10px; /* top, right, bottom, left */
+}
+
+.contract-lower {
+  background-color: #ffd3e0;
+  padding: 0px 10px 10px 10px; /* top, right, bottom, left */
+}
+
+.mint {
+  background-color: #c5e1a5;
+  padding: 10px 10px;
+}
+
+.transfer {
+  background-color: #fff3c4;
+  padding: 10px 10px;
+}
+
+.burn {
+  background-color: #ffd3e0;
+  padding: 10px 10px;
+}
+
+.gas {
+  background-color: #fff3c4;
+  padding: 10px 10px;
+}
+/* ======================================================================== */
+/* Styles for alignment settings */
+.two_column {
+  margin-left: 300px;
+  line-height: 1.5;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: center;
+  justify-content: start;
+}
+
+.three_column {
+  margin-left: 300px;
+  line-height: 1.5;
+  display: grid;
+  grid-template-columns: 150px 150px 1fr;
+  align-items: center;
+  justify-content: start;
+}
+
+.three_column > :nth-child(3) {
+  align-self: center;
+}

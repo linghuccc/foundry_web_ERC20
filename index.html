@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="#" />
+    <title>Foundry ERC20 Token Example</title>
+    <link rel="stylesheet" href="css/header_footer.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/elements.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="#" class="btn-connect" onclick="connect()"
+              >Connect wallet</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main_content">
+      <section id="section_wallet" class="wallet" style="display: none">
+        <div class="two_column">
+          <span>Chain: </span><span id="chain"></span> <span>Chain ID: </span
+          ><span id="chain_id"></span> <span>Block Number: </span
+          ><span id="block_number"></span> <span>Block Timestamp: </span
+          ><span id="block_timestamp"></span> <span>Current Account: </span
+          ><span id="account_address"></span> <span>Current Balance: </span
+          ><span id="account_balance"></span>
+        </div>
+      </section>
+
+      <section
+        id="section_read_contract"
+        class="contract-upper"
+        style="display: none"
+      >
+        <div class="two_column">
+          <div>Contract Address:</div>
+          <div>
+            <input
+              type="text"
+              id="contract_address"
+              value="0xA7FDb87c2995e4934a7E60e66af8eA11E8A29B05"
+            />
+          </div>
+          <div>
+            <button class="btn-contract" onclick="read()">Read Contract</button>
+          </div>
+          <div id="contract_warning" class="warning">
+            Invalid contract address
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="section_contract"
+        class="contract-lower"
+        style="display: none"
+      >
+        <div class="two_column">
+          <span>Token Symbol: </span><span id="token_symbol"></span>
+          <span>Total Supply: </span><span id="token_totalSupply"></span>
+          <span>Account Balance: </span><span id="token_balance"></span>
+        </div>
+      </section>
+
+      <section id="section_mint" class="mint" style="display: none">
+        <div class="two_column">
+          <div>Recipient Address:</div>
+          <div>
+            <input
+              type="text"
+              id="recipient_address"
+              value="0x41F669e9c3dCDBf71d2C60843BfDC47bCE257081"
+            />
+          </div>
+        </div>
+        <div class="three_column">
+          <div>Mint Amount:</div>
+          <div>
+            <input type="text" id="mint_amount" placeholder="(digits only)" />
+          </div>
+          <div id="mint_amount_warning" class="warning">
+            Please enter digits only
+          </div>
+        </div>
+        <div class="two_column">
+          <button class="btn-mint" onclick="mint()">Mint</button>
+        </div>
+      </section>
+
+      <section id="section_transfer" class="transfer" style="display: none">
+        <div class="two_column">
+          <div>Transfer To:</div>
+          <div>
+            <input
+              type="text"
+              id="to_address"
+              value="0x7E60F5E4544F8817A1D49bD3bB14c1EE2E7537cC"
+            />
+          </div>
+        </div>
+        <div class="three_column">
+          <div>Amount:</div>
+          <div>
+            <input
+              type="text"
+              id="transfer_amount"
+              placeholder="(digits only)"
+            />
+          </div>
+          <div id="transfer_amount_warning" class="warning"></div>
+        </div>
+        <div class="two_column">
+          <button class="btn-transfer" onclick="transfer()">Transfer</button>
+        </div>
+      </section>
+
+      <section id="section_burn" class="burn" style="display: none">
+        <div class="three_column">
+          <div>Burn Amount:</div>
+          <div>
+            <input type="text" id="burn_amount" placeholder="(digits only)" />
+          </div>
+          <div id="burn_amount_warning" class="warning"></div>
+        </div>
+
+        <div class="two_column">
+          <button class="btn-burn" onclick="burn()">Burn</button>
+        </div>
+      </section>
+
+      <section id="section_gas" class="gas" style="display: none">
+        <div class="two_column">
+          <div>Estimated Gas:</div>
+          <div id="estimated_gas"></div>
+          <div>Gas Price (in gwei):</div>
+          <div id="gas_price"></div>
+        </div>
+      </section>
+      <section id="section_hash" class="gas" style="display: none">
+        <div class="two_column">
+          <div>Transaction Hash:</div>
+          <div id="tx_hash"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 Zen Lab Inc. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.9.0/dist/web3.min.js"></script>
+    <script src="./js/check.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

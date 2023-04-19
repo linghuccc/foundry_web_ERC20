@@ -1,0 +1,101 @@
+/* Style for Buttons */
+.btn-contract {
+  display: inline-block;
+  padding: 8px 20px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  background-color: #2196f3;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-contract:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+/* ========================================== */
+.btn-mint {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  background-image: linear-gradient(to right, #f44336, #ff9800, #ffeb3b);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-mint:hover {
+  background-image: linear-gradient(to right, #ffeb3b, #ff9800, #f44336);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+/* ========================================== */
+.btn-transfer {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2196f3;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-transfer:hover {
+  background-color: #1976d2;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+/* ========================================== */
+.btn-burn {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #2196f3;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid #2196f3;
+  border-radius: 4px;
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-burn:hover {
+  background-color: #2196f3;
+  color: #fff;
+}
+/* ======================================================================== */
+/* Styles for Inputs */
+input[type="text"] {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #ccc;
+  width: 420px;
+  height: 30px;
+  vertical-align: text-bottom;
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+  background-color: #f8f8f8;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+input[type="text"][id$="amount"] {
+  width: 105px; /* shorter length */
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px #8ac4d0;
+}
+/* ======================================================================== */
+/* Styles for Warnings */
+.warning {
+  display: none;
+  color: red;
+}
