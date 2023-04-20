@@ -1,70 +1,37 @@
-// Get the input element and warning message element for mint
-const mintInput = document.getElementById("mint_amount");
-const mintWarning = document.getElementById("mint_amount_warning");
+function inputAmountValidation(input, warning) {
+  input.addEventListener("input", () => {
+    let value = input.value;
+    value = value.replace(/[^0-9.]/g, "");
 
-// Add an event listener for input mint events
-mintInput.addEventListener("input", () => {
-  // Get the input value
-  let mintValue = mintInput.value;
+    // Check for valid numerical input
+    if (
+      value.length !== input.value.length ||
+      value.split(".").filter((part) => part !== "").length > 2 ||
+      value.startsWith(".")
+    ) {
+      warning.innerText = "Please enter a valid number";
+      warning.style.display = "block";
+    } else {
+      warning.style.display = "none";
+    }
 
-  // Remove non-digit characters
-  mintValue = mintValue.replace(/[^0-9]/g, "");
+    input.value = value;
+  });
+}
 
-  // Show or hide the warning message
-  if (mintValue.length !== mintInput.value.length) {
-    mintWarning.style.display = "block";
-  } else {
-    mintWarning.style.display = "none";
-  }
+// Set input validation for mint
+const mintInputElement = document.getElementById("mint_amount");
+const mintWarningElement = document.getElementById("mint_amount_warning");
+inputAmountValidation(mintInputElement, mintWarningElement);
 
-  // Update the input value
-  mintInput.value = mintValue;
-});
-/////////////////////////////////////////////////////////////////////
-// Get the input element and warning message element for transfer
-const transferInput = document.getElementById("transfer_amount");
-const transferWarning = document.getElementById("transfer_amount_warning");
+// Set input validation for transfer
+const transferInputElement = document.getElementById("transfer_amount");
+const transferWarningElement = document.getElementById(
+  "transfer_amount_warning"
+);
+inputAmountValidation(transferInputElement, transferWarningElement);
 
-// Add an event listener for input transfer events
-transferInput.addEventListener("input", () => {
-  // Get the input value
-  let transferValue = transferInput.value;
-
-  // Remove non-digit characters
-  transferValue = transferValue.replace(/[^0-9]/g, "");
-
-  // Show or hide the warning message
-  if (transferValue.length !== transferInput.value.length) {
-    transferWarning.innerText = "Please enter digits only";
-    transferWarning.style.display = "block";
-  } else {
-    transferWarning.style.display = "none";
-  }
-
-  // Update the input value
-  transferInput.value = transferValue;
-});
-/////////////////////////////////////////////////////////////////////
-// Get the input element and warning message element for burn
-const burnInput = document.getElementById("burn_amount");
-const burnWarning = document.getElementById("burn_amount_warning");
-
-// Add an event listener for input burn events
-burnInput.addEventListener("input", () => {
-  // Get the input value
-  let burnValue = burnInput.value;
-
-  // Remove non-digit characters
-  burnValue = burnValue.replace(/[^0-9]/g, "");
-
-  // Show or hide the warning message
-  if (burnValue.length !== burnInput.value.length) {
-    burnWarning.innerText = "Please enter digits only";
-    burnWarning.style.display = "block";
-  } else {
-    burnWarning.style.display = "none";
-  }
-
-  // Update the input value
-  burnInput.value = burnValue;
-});
+// Set input validation for burn
+const burnInputElement = document.getElementById("burn_amount");
+const burnWarningElement = document.getElementById("burn_amount_warning");
+inputAmountValidation(burnInputElement, burnWarningElement);
