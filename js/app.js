@@ -3,6 +3,7 @@ var web3;
 var chainID;
 var chain;
 var currency;
+var scanner;
 var accountAddress;
 var contractAddress;
 var contractInstance;
@@ -418,12 +419,14 @@ var erc20Abi = [
   },
 ];
 
+// ========== 隐藏所有信息 ========== //
 function hideAllSections() {
   document.getElementById("section_wallet").style.display = "none";
   document.getElementById("section_read_contract").style.display = "none";
   hideContractSection();
 }
 
+// ========== 隐藏合约信息 ========== //
 function hideContractSection() {
   document.getElementById("section_contract").style.display = "none";
   document.getElementById("section_mint").style.display = "none";
@@ -432,6 +435,7 @@ function hideContractSection() {
   hideTransactionSection();
 }
 
+// ========== 隐藏交易信息 ========== //
 function hideTransactionSection() {
   document.getElementById("section_gas").style.display = "none";
   document.getElementById("section_hash").style.display = "none";
@@ -456,26 +460,32 @@ async function isMintVisible() {
   }
 }
 
-// ========== 得到 Chain 名称并设定 gas 名称 ========== //
+// ========== 得到 Chain 名称，设定 gas token 名称，并设定 scanner 地址 ========== //
 function getChainName() {
   if (chainID === 1) {
     chain = "Ethereum";
     currency = "ETH";
+    scanner = "https://etherscan.io/tx/";
   } else if (chainID === 5) {
     chain = "Goerli";
     currency = "ETH";
+    scanner = "https://goerli.etherscan.io/tx/";
   } else if (chainID === 11155111) {
     chain = "Sepolia";
     currency = "ETH";
+    scanner = "https://sepolia.etherscan.io/tx/";
   } else if (chainID === 56) {
     chain = "BSC";
     currency = "BNB";
+    scanner = "https://bscscan.com/tx/";
   } else if (chainID === 97) {
     chain = "BSC Testnet";
     currency = "BNB";
+    scanner = "https://testnet.bscscan.com/tx/";
   } else {
     chain = "Unknown";
     currency = "";
+    scanner = "";
   }
 }
 
@@ -573,6 +583,7 @@ async function sendTransaction(transferData) {
     "gwei"
   );
   document.getElementById("section_gas").style.display = "block";
+  document.getElementById("section_gas").scrollIntoView(true);
 
   // 展示 transaction hash 信息
   var nonce = await web3.eth.getTransactionCount(accountAddress);
@@ -593,16 +604,21 @@ async function sendTransaction(transferData) {
     .on("transactionHash", function (hash) {
       console.log("Transaction Hash: ", hash);
       document.getElementById("tx_hash").innerText = hash;
+      document.getElementById("tx_hash").href = scanner + hash;
+      document.getElementById("tx_hash").target = "_blank";
       document.getElementById("section_hash").style.display = "block";
+      document.getElementById("section_hash").scrollIntoView(true);
     })
     .on("confirmation", async function (confirmationNumber, receipt) {
       if (confirmationNumber >= 1) {
         // Wait for at least 1 confirmation
+        // 更新页面的 token balance 信息
         tokenBalance = await contractInstance.methods
           .balanceOf(accountAddress)
           .call();
         document.getElementById("token_balance").innerText =
           web3.utils.fromWei(tokenBalance);
+        document.getElementById("token_balance").scrollIntoView(true);
       }
     });
 }
