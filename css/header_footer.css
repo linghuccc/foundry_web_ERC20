@@ -63,7 +63,7 @@ nav a {
 /* Styles for Main part */
 .main_content {
   margin-top: 35px;
-  margin-bottom: 55px;
+  margin-bottom: 35px;
 }
 /* ======================================================================== */
 /* Styles for Footer */
@@ -73,6 +73,6 @@ footer {
   left: 0;
   width: 100%;
   background-color: #f5f5f5;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
