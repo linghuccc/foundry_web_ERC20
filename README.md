@@ -4,4 +4,5 @@
 
 本 project 使用 Foundry 框架，有前端界面，可读取当前合约的最新状态（totalSupply），可读取输入账户地址的当前余额，可以在前端实现转账与销毁功能。合约 owner 可以在前端实现增发功能。
 
-Entry 界面：index.html。
+网页界面：
+https://linghuccc.github.io/foundry_web_ERC20/
